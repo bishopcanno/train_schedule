@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    <title>EricB'sTrainSchedule</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/train_style.css">
+
+</head>
+<body>
+    <div class="container">
+            <div class="row">
+                <div class="col-sm-12 jumbotron text-white d-flex justify-content-center">
+                    <h1 class=" display-4">Super-Time Railroad</h1>
+                </div>
+            </div>
+            <br/>
+        
+        <div class="row bg-primary">
+            <div class="col-sm-12">
+                <h4 class="text-white">Train Schedule</h4>
+            </div>
+        </div>
+        <div class="row border border-primary">
+            <div class="col-sm-12">
+                <div>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency</th>
+                                <th>Next Arrival (24Hr)</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trainInfoDisplay"></tbody>    
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        
+        <div class="row bg-primary">
+            <div class="col-sm-12">
+                <h4 class="text-white">Add Train</h4>
+            </div>
+        </div>
+
+        <div class="row border border-primary" id="formDiv">
+            <div class="col-sm-12">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Search">Train Name</label>
+                            <input type="search" class="form-control" id="nameForm">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Search">Destination</label>
+                            <input type="search" class="form-control" id="destForm">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Search">First Train Time (HH:mm - military)</label>
+                            <input type="search" class="form-control" id="timeForm">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-sm-12">
+                            <label for="Search">Frequency (min)</label>
+                            <input type="search" class="form-control" id="freqForm">
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-info" id="add">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+    <script src="./assets/train_logic.js"></script>
+</body>
+</html>
