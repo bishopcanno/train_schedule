@@ -1,6 +1,14 @@
-.jumbotron{
-    background-color: maroon
+/* sets the body tag color */
+body{
+    background-color: dimgrey;
 }
+/* sets borders around the form and display table */
+.border{
+    border: solid 1px blue;
+}
+/* positoins the add button and adds a margin to the bottom for cleanliness */
 #add{
     margin-bottom: 5px;
+    position: relative;
+    left: 10px;
 }

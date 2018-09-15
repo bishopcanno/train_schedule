@@ -5,88 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible">
     <title>EricB'sTrainSchedule</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
     <link rel="stylesheet" href="./assets/train_style.css">
-
+    <!-- initializes the html doc and links the materialize and the app's css file -->
 </head>
 <body>
+    <!-- container initialized here -->
     <div class="container">
-            <div class="row">
-                <div class="col-sm-12 jumbotron text-white d-flex justify-content-center">
-                    <h1 class=" display-4">Super-Time Railroad</h1>
-                </div>
-            </div>
-            <br/>
-        
-        <div class="row bg-primary">
-            <div class="col-sm-12">
-                <h4 class="text-white">Train Schedule</h4>
+        <!-- the header  -->
+        <div class="row z-depth-4">
+            <div class="col s12 orange lighten-1 white-text center-align">
+                <h1>Super-Time Railroad</h1>
             </div>
         </div>
-        <div class="row border border-primary">
-            <div class="col-sm-12">
-                <div>
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>Train Name</th>
-                                <th>Destination</th>
-                                <th>Frequency</th>
-                                <th>Next Arrival (24Hr)</th>
-                                <th>Minutes Away</th>
-                            </tr>
-                        </thead>
-                        <tbody id="trainInfoDisplay"></tbody>    
-                    </table>
-                </div>
+        <!-- the first parallax  -->
+        <div class="parallax-container">
+            <div class="parallax"><img src="./assets/trainImgs/train.jpg"></div>
+        </div>
+        <br/>
+        <!-- the head for the display table -->
+        <div class="row z-depth-4 blue lighten-3">
+            <div class="col s12">
+                <h5 class="white-text">Train Schedule</h5>
             </div>
         </div>
-        <br>
-        <br>
-        
-        <div class="row bg-primary">
-            <div class="col-sm-12">
-                <h4 class="text-white">Add Train</h4>
+        <!-- the display table, the body of which will be added to dynamically -->
+        <div class="row border orange lighten-5">
+            <div class="col s12">
+                <table class="highlight">
+                    <thead class="orange lighten-5">
+                        <tr>
+                            <th>Train Name</th>
+                            <th>Destination</th>
+                            <th>Frequency</th>
+                            <th>Next Arrival (24Hr)</th>
+                            <th>Minutes Away</th>
+                            <th>Current Time</th>
+                        </tr>
+                    </thead>            
+                    <tbody class="orange lighten-5" id="trainInfoDisplay"></tbody>
+                </table>
             </div>
         </div>
-
-        <div class="row border border-primary" id="formDiv">
-            <div class="col-sm-12">
+       <!-- the second parallax -->
+        <div class="parallax-container">
+            <div class="parallax"><img src="./assets/trainImgs/f25c52ee6e25ed3b8642633514f85b6e.jpg"></div>
+        </div>
+        <br/>
+        <!-- head for the form -->
+        <div class="row blue lighten-3 z-depth-4">
+            <div class="col s12">
+                <h5 class="white-text">Add Train</h5>
+            </div>
+        </div>
+        <!-- the form that gathers user inputs -->
+        <div class="row border orange lighten-5" id="formDiv">
+            <div class="col s12">
                 <form>
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <label for="Search">Train Name</label>
+                    <!-- each row has the search paramaters, the text bar, and helper text -->
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="Search">Train Name:</label>
                             <input type="search" class="form-control" id="nameForm">
+                            <span class="helper-text" data-error="wrong" data-success="right">Virginia Creeper</span>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <label for="Search">Destination</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="Search">Destination:</label>
                             <input type="search" class="form-control" id="destForm">
+                            <span class="helper-text" data-error="wrong" data-success="right">Richmond</span>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <label for="Search">First Train Time (HH:mm - military)</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="Search">First Arrival Time:</label>
                             <input type="search" class="form-control" id="timeForm">
+                            <span class="helper-text" data-error="wrong" data-success="right">Military</span>
                         </div>
                     </div>
 
-                    <div class="form-row">
-                        <div class="form-group col-sm-12">
-                            <label for="Search">Frequency (min)</label>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <label for="Search">Frequency:</label>
                             <input type="search" class="form-control" id="freqForm">
+                            <span class="helper-text" data-error="wrong" data-success="right">Minutes</span>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-info" id="add">Add</button>
+                    <!-- add button -->
+                    <button type="button" class="btn btn-info orange lighten-1" id="add">Add</button>
                 </form>
             </div>
         </div>
     </div>
+    <!-- the script links in order, jquery, moment, materialize, firebase, and the app's javascript file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
     <script src="./assets/train_logic.js"></script>
 </body>
